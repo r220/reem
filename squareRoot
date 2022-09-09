@@ -1,0 +1,19 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+public class squareRoot {
+    
+    public static void main(String[] args) {
+    
+    Scanner key = new Scanner(System.in);
+    
+    System.out.print("num = ");
+    double num = key.nextDouble();
+    
+    double sqrt = Math.sqrt(num);
+    
+    System.out.print(sqrt);
+    
+    
+}
+    }
