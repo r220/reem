@@ -1,0 +1,87 @@
+public class Book {
+	
+	
+	//1
+	public String generateReference(String author , String genre) {
+		
+		String referencecode = author.substring(0,2) + '-' + genre.substring(0,2);
+		return referencecode;
+	}
+	
+	//2
+	public boolean verifyISBN(String ISBN) {
+
+		char n1, n2, n3, n4;
+	
+		n1 = ISBN.charAt(0);
+		n2 = ISBN.charAt(1);
+		n3 = ISBN.charAt(2);
+		n4 = ISBN.charAt(3);
+		
+		
+		int nu1, nu2, nu3, nu4;
+		
+		nu1 = Character.getNumericValue(n1);
+		nu2 = Character.getNumericValue(n2);
+		nu3 = Character.getNumericValue(n3);
+		nu4 = Character.getNumericValue(n4);
+
+		
+		if ((nu1*3 + nu2*2 + nu3*1) % 4 == nu4) 
+			return true; 
+		else 
+			return false;
+	}
+	
+	
+	//3
+	public String toString( String title,String author,String ISBN,String genre) {
+	
+		System.out.println("Title: " + title + "\n");
+
+		System.out.println("Author: " + author + "\n");
+
+		System.out.println("ISBN: " + ISBN + "\n");
+
+		System.out.println("Genre: " + genre + "\n");
+		
+		return "completed";
+		
+			}
+			
+	}
+  
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  
+  import java.util.Scanner;
+
+public class TestBook {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Book Book = new Book();
+		
+		try (Scanner key = new Scanner(System.in)) {
+			System.out.println("Please, inter the book details #ISBN, author, title, and genre.");
+			
+			String ISBN = key.next();
+			String author = key.next();
+			String title = key.next();
+			String genre = key.next();
+		
+			if (Book.verifyISBN(ISBN) == false) 
+				System.out.print("Invalid ISBN");
+			else {
+				Book.toString(title ,author ,ISBN ,genre);
+				System.out.print("The book reference is: " + Book.generateReference(author, genre));
+				
+			}
+		}
+			
+			
+		
+	
+	}
+}
+
