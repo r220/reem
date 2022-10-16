@@ -1,0 +1,49 @@
+public class Rational {
+	
+	// shape: y/x
+	public int y,x;
+	
+	
+	public Rational add(Rational obj2) {
+		
+		Rational result = new Rational();
+		
+		if (x != obj2.x) {
+			
+			y *= obj2.x;
+			obj2.y *= x;
+			
+			result.x = x * obj2.x;
+			result.y = y + obj2.y;
+			return result;
+
+		}
+		else {
+			result.x = x;
+			result.y = y + obj2.y;
+			return result;
+		}
+		
+		
+	}
+	
+  
+  ///////////////////////////////////////////////////////////////////
+  
+  
+	public static void main(String[] args) {
+		
+		Rational r1 = new Rational();
+		r1.y = 2;
+		r1.x = 3;
+		Rational r2 = new Rational();
+		r2.y = 2;
+		r2.x = 5;
+		
+		Rational r3 = r1.add(r2);
+		
+		System.out.print(r3.y + " / " + r3.x);
+		
+	
+	}
+}
