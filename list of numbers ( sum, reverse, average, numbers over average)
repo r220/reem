@@ -1,0 +1,69 @@
+import java.util.*;
+public class Test {
+
+	public static void main(String[] args) {
+		
+		Scanner input = new Scanner(System.in);
+		
+		//1
+		System.out.print(" enter numbers : ");
+		double[] num = new double[input.nextInt()];
+
+		
+		//2 entering numbers
+		for (int i = 0; i < num.length; i++ ) {
+			System.out.print("number " + i + " is : ");
+			num[i] = input.nextDouble();
+			System.out.print("\n");
+		}
+		
+		//3 sum up
+		double sum = 0;
+		for (int i = 0; i < num.length; i++ ) {
+				sum += num[i];
+			}
+		System.out.println("The sum is : " + sum+ "\n");
+		
+		
+		//4 reverse
+		System.out.println("numbers in reserve: ");
+		for (int i = num.length - 1;i >=0; i--){
+			System.out.println(num[i]);
+		}
+		e
+		
+		//4 average
+		double average = sum / num.length;
+		System.out.println("Average = " + average + "/n");
+		
+		
+		//5 numbers of outputs  that are > average
+		int aboveAverageNum = 0;
+		for (int i = 0; i < num.length; i++) {
+			if (num[i] > average)
+				aboveAverageNum += 1;
+		}
+		System.out.println("Numbers of outputs  that are > average = "
+				+ aboveAverageNum + "\n");
+		
+		//6 outputs that are > average
+		
+		for (int i = 0; i < num.length; i = num.length) {
+			
+			for (int j = 0; j < num.length - 1 ; j++ ) {
+
+				if (num[j] > average) 
+					System.out.print(num[j] + " , ");	
+			}			
+				
+			int n = num.length - 1;
+			System.out.println(num[n]);	
+				
+			
+		
+		
+		}
+		
+	}
+	
+}
