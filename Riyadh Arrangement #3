@@ -1,0 +1,32 @@
+public class Practice {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		char[] n = { 'd', 'h', 'R', 'i', 'y', 'a'};
+		
+		char add5 = n[1];
+		char add4 = n[0];
+
+		
+		int u = 2;
+		int i = 0;
+		while (u < 6) {
+			n[i] = n[u];
+			u++;
+			i++;
+			}
+		n[5] = add5;
+		n[4] = add4; 
+
+		if (true)
+			System.out.print(n[0]);
+			System.out.print(n[1]);
+			System.out.print(n[2]);
+			System.out.print(n[3]);
+			System.out.print(n[4]);
+			System.out.print(n[5]);
+
+	}
+
+	
+}
