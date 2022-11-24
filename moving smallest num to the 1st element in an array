@@ -1,0 +1,30 @@
+public class Practice {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] n = { 10, 3, 5, 1, 7, 8};
+		
+		int first = n[0];
+		
+		int smallest = n[0];
+		int ind = 0;
+		for (int i = 1; i <n.length; i++) {
+			if (n[i] < smallest ) {
+				smallest = n[i];
+				ind = i;
+				}
+		}
+		n[0] = smallest;
+		n[ind] = first;
+				
+		System.out.println(n[0]);
+		System.out.println(n[1]);
+		System.out.println(n[2]);
+		System.out.println(n[3]);
+		System.out.println(n[4]);
+		System.out.println(n[5]);
+
+	}
+
+	
+}
