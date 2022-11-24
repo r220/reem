@@ -1,0 +1,27 @@
+public class Practice {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		char[] n = {'i', 'y', 'a', 'd', 'h', 'R'};
+		
+		char add = n[5];
+		int u = 4;
+		int i = 5;
+		while (u > -1) {
+			n[i] = n[u];
+			u--;
+			i--;
+			}
+		n[0] = add; 
+		if (true)
+			System.out.print(n[0]);
+			System.out.print(n[1]);
+			System.out.print(n[2]);
+			System.out.print(n[3]);
+			System.out.print(n[4]);
+			System.out.print(n[5]);
+
+	}
+
+	
+}
