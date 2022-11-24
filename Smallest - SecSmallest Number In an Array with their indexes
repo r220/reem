@@ -1,0 +1,79 @@
+import java.util.*;
+
+public class SmallestNumInArray{
+
+	public static void main(String[] args) {
+
+		
+		Scanner in = new Scanner(System.in);
+		
+		System.out.print("Enter number of Digits: ");
+		double[] num = new double[in.nextInt()];
+		
+		// 1- entering the numbers
+		for (int i = 0; i < num.length; i++) {
+			System.out.print("Enter number : ");
+			num[i] = in.nextDouble(); 
+		}
+		
+		
+		// 2- var of smallest val / secSmallest val
+		int IndexNum = 0;
+		double smallestNum = num[0];
+		
+		int SecIndexNum = 0;
+		double SecSmallestNum = num[0];
+		
+		
+		// 3- smallest Number & Index
+		for (int i = 1; i < num.length; i++) {
+			
+			if (num[i] <= smallestNum) {
+				smallestNum = num[i];
+				IndexNum = i;
+				System.out.println("Index num = " + IndexNum + "\n");
+			}
+		}
+		
+		
+		// 4-
+		double numm = num[0];
+		int nummInd = 0;
+		
+		for (int i = 1; i < num.length; i++) {
+			//			System.out.println("NEW round ..." + i);
+			if (i != IndexNum && num[i] != smallestNum) {
+				//				 System.out.println("YOH !");
+
+				if (numm < num[i]) {
+					SecSmallestNum = numm;
+					SecIndexNum = nummInd;
+					//					 System.out.println("YES !");
+					//					System.out.println("SEC smalles ind = " + SecSmallestNum);
+					//					System.out.println("SEC smallest num = " + SecIndexNum);
+				}
+				else {
+					SecSmallestNum = num[i];
+					SecIndexNum = i;
+					numm = num[i];
+					nummInd = i;
+					//					System.out.println("NO !");
+					//					System.out.println("SEC smalles ind = " + SecSmallestNum);
+					//					System.out.println("SEC smallest num = " + SecIndexNum + "\n");	
+				}
+			}
+			
+		}
+		
+		System.out.println("The smallest number is : "+smallestNum + "\n");
+		System.out.println("Smallest Index Value : "  + IndexNum + "\n");
+		
+		System.out.println("The second smallest number is : "+ SecSmallestNum +"\n"	);
+		System.out.println("Second Largest Index Value : "+ SecIndexNum +"\n" 	);
+		
+		
+		
+		
+
+	}
+}
