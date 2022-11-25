@@ -1,0 +1,19 @@
+public class Swap {
+	
+	public static void swap(int[] array, int i, int j) {
+		
+		int fst = array[j];
+		array[j] = array[i];
+		array[i] = fst;
+		
+		
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] t = {2, 3, 1, 6, 3, 8};
+		
+		Swap.swap(t, 1, 3);
+	}
+
+}
