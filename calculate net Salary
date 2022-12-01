@@ -1,1 +1,34 @@
+import java.util.*;
+public class Salary {
 
+	public static void main(String[] args) {
+		
+		Scanner o = new Scanner(System.in);
+		
+		System.out.println("Salary details : " + "\n" + "----------------");
+		
+		System.out.print("your base salary : ");
+		double salary = o.nextDouble();
+		
+		double tax = 2.0/100 * salary;
+		System.out.println("taxes : " + tax);
+
+		double SalAfterTAX = salary - tax;
+		System.out.println("salary after tax : " + SalAfterTAX);
+
+		System.out.print("incentive : ");
+		double incentive = o.nextDouble();
+		
+		System.out.println("----------------");
+
+		double netsalary = SalAfterTAX + incentive;
+		System.out.println("net salary : " + netsalary + " SAR");
+
+
+
+
+		
+
+	}
+
+}
