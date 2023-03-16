@@ -1,0 +1,443 @@
+package com.example.demo1;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.animation.KeyFrame;
+import javafx.geometry.Pos;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
+import javafx.scene.text.*;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
+
+class TicTacToePane extends BorderPane {
+
+    Timeline animation = new Timeline(new KeyFrame(Duration.millis(100), e ->
+    {
+        addPaneByClick();
+        setGame();
+    }));
+
+    GridPane gridPane = new GridPane();
+    private final Text message = new Text();
+    StackPane textPane = new StackPane(message);
+
+    public boolean Xturn = true;
+    int blocksFilled = 0;
+
+    StackPane empty1 = EmptyPane();
+    StackPane empty2 = EmptyPane();
+    StackPane empty3 = EmptyPane();
+    StackPane empty4 = EmptyPane();
+    StackPane empty5 = EmptyPane();
+    StackPane empty6 = EmptyPane();
+    StackPane empty7 = EmptyPane();
+    StackPane empty8 = EmptyPane();
+    StackPane empty9 = EmptyPane();
+
+    public void play(){
+        animation.play();
+    }
+
+    public void setGridPane(){
+        gridPane.setPrefSize(300,300);
+        gridPane.setAlignment(Pos.CENTER);
+        gridPane.setStyle("-fx-border-color: red");
+        gridPane.getChildren().clear();
+
+        gridPane.addRow(0, empty1, empty2, empty3);
+        gridPane.addRow(1, empty4, empty5, empty6);
+        gridPane.addRow(2, empty7, empty8, empty9);
+    }
+
+    public void setGame(){
+        gridPane.getChildren().clear();
+        setGridPane();
+        setBottom(textPane);
+        setCenter(gridPane);
+    }
+    public TicTacToePane() {
+        message.setFont(Font.font("Comic Sans MS", FontWeight.NORMAL, FontPosture.REGULAR, 25));
+        message.setTextAlignment(TextAlignment.CENTER);
+        textPane.setStyle("-fx-border-color: blue");
+    }
+
+    public StackPane EmptyPane() {
+        StackPane emptyPane = new StackPane();
+        emptyPane.setStyle("-fx-border-color: black");
+        emptyPane.setPrefHeight(100);
+        emptyPane.setPrefWidth(100);
+        return emptyPane;
+
+    }
+
+    public void setMessage(String text) {
+        this.message.setText(text);
+    }
+
+    // Xpane
+    public void setXpane(StackPane pane) {
+        Line line1 = new Line(0,0,45,45);
+        Line line2 = new Line(0,45,45,0);
+        line1.setId("X");
+        line2.setId("X");
+        line1.setStrokeWidth(5);
+        line1.setStroke(Color.RED);
+        line2.setStrokeWidth(5);
+        line2.setStroke(Color.RED);
+        pane.getChildren().addAll(line1, line2);
+    }
+    // Opane
+    public void setOpane(StackPane pane) {
+        Circle circle = new Circle(25);
+        circle.setId("O");
+        circle.setStroke(Color.BLUE);
+        circle.setFill(Color.rgb(255,255,255, 0));
+        circle.setStrokeWidth(5);
+        pane.getChildren().add(circle);
+//        Opane.setStyle("-fx-border-color: black");
+//        Opane.setPrefHeight(100);
+//        Opane.setPrefWidth(100);
+    }
+
+    public void addPaneByClick() {
+
+        empty1.setOnMouseClicked(e -> {
+            if (Xturn){
+                setXpane(empty1);
+                if (checkXWin()) {
+                    animation.stop();
+
+                }
+                else if(checkTie()){
+                    animation.stop();
+                }
+                else {
+                    switchPlayer();
+                    blocksFilled++;
+                }
+            }
+            else {
+                setOpane(empty1);
+                if (checkOWin()) {
+                    animation.stop();
+                }
+                else if(checkTie()){
+                    animation.stop();
+                }
+                else {
+                    switchPlayer();
+                    blocksFilled++;
+                }
+            }
+        });
+        empty2.setOnMouseClicked(e -> {
+            if (Xturn){
+                setXpane(empty2);
+                if (checkXWin()) {
+                    animation.stop();
+                }
+                else if(checkTie()){
+                    animation.stop();
+                }
+                else {
+                    switchPlayer();
+                    blocksFilled++;
+                }
+            }
+            else {
+                setOpane(empty2);
+                if (checkOWin()) {
+                    animation.stop();
+                }
+                else if(checkTie()){
+                    animation.stop();
+                }
+                else {
+                    switchPlayer();
+                    blocksFilled++;
+                }
+            }
+        });
+        empty3.setOnMouseClicked(e -> {
+            if (Xturn){
+                setXpane(empty3);
+                if (checkXWin()) {
+                    animation.stop();
+                }
+                else if(checkTie()){
+                    animation.stop();
+                }
+                else {
+                    switchPlayer();
+                    blocksFilled++;
+                }
+            }
+            else {
+                setOpane(empty3);
+                if (checkOWin()) {
+                    animation.stop();
+                }
+                else if(checkTie()){
+                    animation.stop();
+                }
+                else {
+                    switchPlayer();
+                    blocksFilled++;
+                }
+            }
+
+        });
+        empty4.setOnMouseClicked(e -> {
+            if (Xturn){
+                setXpane(empty4);
+                if (checkXWin()) {
+                    animation.stop();
+                }
+                else if(checkTie()){
+                    animation.stop();
+                }
+                else {
+                    switchPlayer();
+                    blocksFilled++;
+                }
+            }
+            else {
+                setOpane(empty4);
+                if (checkOWin()) {
+                    animation.stop();
+                }
+                else if(checkTie()){
+                    animation.stop();
+                }
+                else {
+                    switchPlayer();
+                    blocksFilled++;
+                }
+            }
+        });
+        empty5.setOnMouseClicked(e -> {
+            if (Xturn){
+                setXpane(empty5);
+                if (checkXWin()) {
+                    animation.stop();
+                }
+                else if(checkTie()){
+                    animation.stop();
+                }
+                else {
+                    switchPlayer();
+                    blocksFilled++;
+                }
+            }
+            else {
+                setOpane(empty5);
+                if (checkOWin()) {
+                    animation.stop();
+                }
+                else if(checkTie()){
+                    animation.stop();
+                }
+                else {
+                    switchPlayer();
+                    blocksFilled++;
+                }
+            }
+        });
+        empty6.setOnMouseClicked(e -> {
+            if (Xturn){
+                setXpane(empty6);
+                if (checkXWin()) {
+                    animation.stop();
+                }
+                else if(checkTie()){
+                    animation.stop();
+                }
+                else {
+                    switchPlayer();
+                    blocksFilled++;
+                }
+            }
+            else {
+                setOpane(empty6);
+                if (checkOWin()) {
+                    animation.stop();
+                }
+                else if(checkTie()){
+                    animation.stop();
+                }
+                else {
+                    switchPlayer();
+                    blocksFilled++;
+                }
+            }
+        });
+        empty7.setOnMouseClicked(e -> {
+            if (Xturn){
+                setXpane(empty7);
+                if (checkXWin()) {
+                    animation.stop();
+                }
+                else if(checkTie()){
+                    animation.stop();
+                }
+                else {
+                    switchPlayer();
+                    blocksFilled++;
+                }
+            }
+            else {
+                setOpane(empty7);
+                if (checkOWin()) {
+                    animation.stop();
+                }
+                else if(checkTie()){
+                    animation.stop();
+                }
+                else {
+                    switchPlayer();
+                    blocksFilled++;
+                }
+            }
+
+        });
+        empty8.setOnMouseClicked(e -> {
+            if (Xturn){
+                setXpane(empty8);
+                if (checkXWin()) {
+                    animation.stop();
+                }
+                else if(checkTie()){
+                    animation.stop();
+                }
+                else {
+                    switchPlayer();
+                    blocksFilled++;
+                }
+            }
+            else {
+                setOpane(empty8);
+                if (checkOWin()) {
+                    animation.stop();
+                }
+                else if(checkTie()){
+                    animation.stop();
+                }
+                else {
+                    switchPlayer();
+                    blocksFilled++;
+                }
+            }
+        });
+        empty9.setOnMouseClicked(e -> {
+            if (Xturn){
+                setXpane(empty9);
+                if (checkXWin()) {
+                    animation.stop();
+                }
+                else if(checkTie()){
+                    animation.stop();
+                }
+                else {
+                    switchPlayer();
+                    blocksFilled++;
+                }
+            }
+            else {
+                setOpane(empty9);
+                if (checkOWin()) {
+                    animation.stop();
+                }
+                else if(checkTie()){
+                    animation.stop();
+                }
+                else {
+                    switchPlayer();
+                    blocksFilled++;
+                }
+            }
+
+        });
+
+
+    }
+
+    // check if X won
+    public boolean checkX(StackPane pane){
+        if (pane.getChildren().size() > 0)
+            return pane.getChildren().get(0).getId().equals("X");
+        else
+            return false;
+    }
+    public boolean checkXWin(){
+
+        if ((checkX(empty1) && checkX(empty2) && checkX(empty3)) ||
+                (checkX(empty4) && checkX(empty5) && checkX(empty6)) ||
+                (checkX(empty7) && checkX(empty8) && checkX(empty9)) ||
+                (checkX(empty1) && checkX(empty4) && checkX(empty7)) ||
+                (checkX(empty2) && checkX(empty5) && checkX(empty8)) ||
+                (checkX(empty3) && checkX(empty6) && checkX(empty9)) ||
+                (checkX(empty1) && checkX(empty5) && checkX(empty9)) ||
+                (checkX(empty3) && checkX(empty5) && checkX(empty7)))
+        {
+            setMessage("X won ! The game is over");
+            return true;
+        }
+        else return false;
+    }
+    // check if O won
+    public boolean checkO(StackPane pane){
+        if (pane.getChildren().size() > 0)
+            return pane.getChildren().get(0).getId().equals("O");
+        else
+            return false;
+    }
+    public boolean checkOWin(){
+        if ((checkO(empty1) && checkO(empty2) && checkO(empty3)) ||
+                (checkO(empty4) && checkO(empty5) && checkO(empty6)) ||
+                (checkO(empty7) && checkO(empty8) && checkO(empty9)) ||
+                (checkO(empty1) && checkO(empty4) && checkO(empty7)) ||
+                (checkO(empty2) && checkO(empty5) && checkO(empty8)) ||
+                (checkO(empty3) && checkO(empty6) && checkO(empty9)) ||
+                (checkO(empty1) && checkO(empty5) && checkO(empty9)) ||
+                (checkO(empty3) && checkO(empty5) && checkO(empty7)))
+        {
+            setMessage("O won ! The game is over");
+            return true;
+        }
+        else return false;
+
+    }
+    // check if Tie
+    public boolean checkTie(){
+        if (blocksFilled == 8){
+            setMessage("Draw!  The game is over");
+            return true;
+        }
+        else
+            return false;
+    }
+
+    public void switchPlayer(){Xturn = !Xturn;}
+
+}
+
+
+public class TicTacToeGame extends Application {
+
+
+
+    @Override
+    public void start(Stage primaryStage) {
+        TicTacToePane pane = new TicTacToePane();
+        pane.play();
+        primaryStage.setScene(new Scene(pane, 300, 300));
+        primaryStage.show();
+
+    }
+}
